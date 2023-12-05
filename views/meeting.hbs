@@ -1,0 +1,106 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/meeting.css" />
+    <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
+    <script
+      src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
+    ></script>
+
+    <title>Meeting</title>
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-right">
+        <div class="tooltip">
+          <button
+            class="options-set"
+            id="settings-btn"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Ayarlar"
+          >
+            <i class="far fa-sun fa-lg"></i>
+          </button>
+          <span class="tooltiptext">Ayarlar</span>
+        </div>
+        <div class="tooltip">
+          <button
+            class="options-set"
+            id="feedback-btn"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Geri Dönüş"
+          >
+            <i class="far fa-comment-dots fa-lg"></i>
+          </button>
+          <span class="tooltiptext">Geri Dönüş</span>
+        </div>
+        <div class="tooltip">
+          <button
+            class="options-user"
+            id="user-btn"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Kullanıcı Hesabı"
+          >
+            <i class="far fa-user-circle"></i>
+          </button>
+          <span class="tooltiptext">Kullanıcı Hesabı</span>
+        </div>
+      </div>
+      <script>
+        document.getElementById("user-btn").onclick = function () {
+        location.href = "/profil"; };
+      </script>
+
+    </div>
+    <div class="container">
+      <div class="left">
+        <div class="left-box">
+          <h1>
+            Görüntülü toplantılar.<br />
+            Herkes için ücretsiz.
+          </h1>
+          <h3>
+            Toplantılar için geliştirilen Conference App yeniden<br />
+            tasarlandı.Herkes ücretsiz olarak ulaşabilir.
+          </h3>
+          <div class="buttons" id="meet-btn">
+            <button id="create-room" class="options">
+              <i class="fa fa-play-circle-o"></i>
+              Yeni Toplantı
+            </button>
+
+          </div>
+
+          <input
+            type="text"
+            name="room"
+            spellcheck="false"
+            placeholder="Toplantı Kodunu Girin"
+            id="room-code"
+            class="room-code"
+          /><br />
+          <div class="join-room unselectable" id="join-room">Toplantıya Katıl</div>
+
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-box">
+          <lottie-player
+            src="https://assets3.lottiefiles.com/packages/lf20_aeo5ikeu.json"
+            background="transparent"
+            speed="1"
+            style="width: 500px; height: 500px"
+            loop
+            autoplay
+          ></lottie-player>
+        </div>
+      </div>
+    </div>
+    <script src="/landing.js"></script>
+  </body>
+</html>

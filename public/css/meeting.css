@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  font-weight: normal;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+.header {
+  /*width: 100%;
+  height: 66px;
+  display: block;*/
+  overflow: hidden;
+  /*background-color: #e80000;*/
+  padding: 14px 4px;
+}
+.header .options-set {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.header-right {
+  float: right;
+  padding-right: 20px;
+}
+.header .options-user {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 25px;
+  border-radius: 50%;
+  background-color: rgba(34, 44, 63, 0.75);
+  height: 45px;
+  width: 45px;
+  cursor: pointer;
+}
+.options-set {
+  height: 50px;
+
+  color: black;
+  font-size: 1.2rem;
+  width: 50px;
+  margin: 0 0.5rem;
+  border-style: none;
+  background-color: white;
+}
+.options-user {
+  background-color: rgba(34, 44, 63, 0.75);
+  height: 40px;
+  border-radius: 4rem;
+  color: #eeeeee;
+  font-size: 1.2rem;
+  width: 40px;
+  margin: 0 0.5rem;
+  border-style: none;
+}
+@media screen and (max-width: 500px) {
+  .header button {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #0f0f0f;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  font-size: 14px;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #0f0f0f transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 0.8;
+}
+
+.container {
+  height: 88.6vh;
+  display: flex;
+  overflow: hidden;
+}
+h1 {
+  font-size: 50px;
+  padding-top: 70px;
+  padding-left: 80px;
+}
+h3 {
+  padding-left: 80px;
+  padding-top: 0;
+}
+.left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  /* background-color: #66ff33;*/
+}
+.left-box {
+  margin-bottom: 20px;
+}
+.right {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  /*background-color: #f5b800;*/
+}
+.right-box {
+  margin-left: auto;
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+}
+.options {
+  background: darkolivegreen;
+  height: 50px;
+  border-radius: 1rem;
+  color: #eeeeee;
+  font-size: 1.2rem;
+  width: 180px;
+  margin: 0 0.5rem;
+  border-style: none;
+}
+.options:hover {
+  cursor: pointer;
+}
+
+.buttons {
+  margin-left: 80px;
+  padding-top: 30px;
+}
+
+.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.room-code {
+  width: 54%;
+  margin-left: 80px;
+  margin-top: 30px;
+  font-size: 24px;
+  color: black;
+  text-align: center;
+  padding: 10px 0;
+  border: none;
+  border-bottom: 3px solid black;
+  border-top: 2px solid white;
+  font-weight: bold;
+}
+
+.join-room {
+  margin-top: 20px;
+  width: 100%;
+  margin-left: 80px;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+}
+
+.room-code:focus {
+  background-color: white;
+  border: 0;
+  border-bottom: 3px solid black;
+  border-top: 2px solid white;
+  outline: none;
+  border-radius: 0;
+}
+/*#232931*/
+.main .create-join .room-code-error {
+  border-bottom: 3px solid #d31c1c;
+}
+
+.join-room:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

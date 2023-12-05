@@ -1,0 +1,183 @@
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Chat</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/room.css" />
+    <script
+      src="https://kit.fontawesome.com/6fb00c2c50.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const params = new URLSearchParams(location.search); if
+      (!params.get("room")) location.href = "/";
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.2"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix@2.0"
+    ></script>
+
+  </head>
+
+  <body>
+    <div class="overlay" id="overlay">
+      <div class="box">
+        <div class="head-name">Katılımcı isminizi girin</div>
+        <input type="text" class="name-field" placeholder="" id="name-field" />
+
+        <br />
+        <button class="continue-name">Devam et</button>
+
+      </div>
+    </div>
+    <div class="container-room">
+
+      <div class="left-cont">
+
+        <div class="video-cont-single" id="vcont">
+          <div class="video-box">
+            <video class="video-frame" id="vd1" autoplay playsinline>
+            </video>
+            <div class="name-tag" id="my-name">yourname</div>
+            <div class="mute-icon" id="my-mute-icon"><i
+                class="fas fa-microphone-slash"
+              ></i></div>
+            <div class="video-off" id="myvideooff"></div>
+          </div>
+        </div>
+
+        <div class="whiteboard-cont"><canvas
+            id="whiteboard"
+            height="1000"
+            width="1000"
+          ></canvas>
+          <div class="colors-cont">
+            <div class="black" onclick="setColor('black')"></div>
+            <div class="red" onclick="setColor('#e74c3c')"></div>
+            <div class="yellow" onclick="setColor('#f1c40f')"></div>
+            <div class="green" onclick="setColor('#badc58')"></div>
+            <div class="blue" onclick="setColor('#3498db')"></div>
+            <div class="orange" onclick="setColor('#e67e22')"></div>
+            <div class="purple" onclick="setColor('#9b59b6')"></div>
+            <div class="pink" onclick="setColor('#fd79a8')"></div>
+            <div class="brown" onclick="setColor('#834c32')"></div>
+            <div class="grey" onclick="setColor('gray')"></div>
+            <div class="eraser" onclick="setEraser()"><i
+                class="fas fa-eraser"
+              ></i></div>
+            <div class="clearboard" onclick="clearBoard()"><i
+                class="fas fa-trash-alt"
+              ></i></div>
+          </div>
+
+        </div>
+
+        <div class="footer">
+
+          <div class="utils">
+            <div class="audio tooltip">
+
+              <i class="fas fa-microphone"></i>
+              <span class="tooltiptext">Mikrofon</span>
+
+            </div>
+            <div class="novideo tooltip">
+
+              <i class="fas fa-video"></i>
+              <span class="tooltiptext">Kamera</span>
+
+            </div>
+            <div class="screenshare tooltip">
+              <i class="fas fa-desktop"></i>
+              <span class="tooltiptext">Ekran paylaşımı</span>
+            </div>
+
+            <div class="blur tooltip">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              <span class="tooltiptext">Arkaplanını Blurlaştır</span>
+            </div>
+
+            <div class="react tooltip" id="emojiButton">
+              <div class="send-react"><i class="fa-regular fa-hand"></i></div>
+
+              <span class="tooltiptext">Söz Hakkı İste</span>
+            </div>
+
+            <!--<div class="record tooltip">
+              <i class="fa-solid fa-record-vinyl"></i>
+              <span class="tooltiptext">Toplantıyı kaydet</span>
+            </div>
+            <div class="stop-record tooltip">
+              <i class="fa-solid fa-stop"></i>
+              <span class="tooltiptext">Toplantıyı durdur</span>
+            </div>-->
+
+            <div class="board-icon tooltip">
+              <i class="fas fa-chalkboard"></i>
+              <span class="tooltiptext">Beyaz tahta</span>
+            </div>
+
+            <div class="cutcall tooltip">
+              <i class="fas fa-phone-slash"></i>
+              <span class="tooltiptext">Toplantıdan ayrıl</span>
+            </div>
+            <div class="downloadButt tooltip">
+
+              <a id="downloadButt"> <i class="fa-solid fa-download"></i></a>
+              <span class="tooltiptext">Kaydı indir</span>
+            </div>
+
+          </div>
+
+          <div class="copycode-cont">
+            <div class="room-code"></div>
+            <button class="copycode-button" onclick="CopyClassText()">Kodu
+              kopyala</button>
+          </div>
+        </div>
+
+      </div>
+      <video id="recording" width="300" height="200" controls></video>
+
+      <div class="right-cont">
+
+        <div class="chat-cont">
+
+        </div>
+        <div class="chat-input-cont">
+          <div class="ci-cont"><input
+              type="text"
+              class="chat-input"
+              placeholder="Type chat here.."
+            /></div>
+
+          <div class="ci-send"><button class="chat-send"><i
+                class="fas fa-paper-plane"
+              ></i></button></div>
+
+          <input type="file" id="file-input" style="display:none" />
+          <textarea id="message-field" style="display: none;"></textarea>
+
+          <div class="ci-send"><button class="file-send"><i
+                class="fas fa-folder"
+              ></i></button></div>
+
+          <div class="ci-send"><button
+              class="get-room-users-btn"
+              id="usersButton"
+            ><i class="fa-solid fa-users"></i></button></div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="/room.js"></script>
+  </body>
+
+</html>
